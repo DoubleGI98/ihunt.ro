@@ -24,7 +24,6 @@ public class AddToCartAndRemoveProduct {
 
     public void openBrowser(){
         driver = new ChromeDriver();
-        //driver.get("https://www.ihunt.ro/oferta/");
         driver.get("https://www.ihunt.ro/");
         driver.manage().window().maximize();
     }
