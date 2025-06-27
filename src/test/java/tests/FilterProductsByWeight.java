@@ -6,39 +6,47 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import pages.HomePage;
 
-public class FilterProductsByWeight {
-    //i[contains(@class,'fa fa-arrow-left')]
-    WebDriver driver;
+public class FilterProductsByWeight extends BaseTest{
+
+   // WebDriver driver;
 
     @Test
     public void executeTest(){
-        openBrowser();
+        //openBrowser();
         waitThreeSeconds();
         acceptCookie();
-        scrollToBottom(driver);
-        backToFrontPage();
+//        scrollToBottom(driver);
+//        backToFrontPage();
+        HomePage mainPage = new HomePage(driver);
+        mainPage.scrollByPixels(driver,400);
+        mainPage.backToFrontPage();
+        mainPage.isPageLoaded();
         selectCategory();
         scrollByPixels(driver,700);
         filterByWeight();
         scrollByPixels(driver,-700);
+        waitThreeSeconds();
     }
 
-    public void openBrowser(){
-        driver = new ChromeDriver();
-        driver.get("https://www.ihunt.ro/");
-        driver.manage().window().maximize();
-    }
+ //   public void openBrowser(){
+ //       driver = new ChromeDriver();
+ //       driver.get("https://www.ihunt.ro/");
+  //      driver.manage().window().maximize();
+ //   }
 
-    public void scrollToBottom(WebDriver driver){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-    }
+//    public void scrollToBottom(WebDriver driver){
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+//    }
+//
+//    public void backToFrontPage(){
+//        WebElement backArrow = driver.findElement(By.xpath("//i[contains(@class,'fa fa-arrow-left')]"));
+//        backArrow.click();
+//    }
 
-    public void backToFrontPage(){
-        WebElement backArrow = driver.findElement(By.xpath("//i[contains(@class,'fa fa-arrow-left')]"));
-        backArrow.click();
-    }
+
 
     public void acceptCookie(){
         WebElement acceptCookieButton = driver.findElement(By.xpath("//button[contains(@id,'CybotCookiebotDialogBodyButtonAccept')]"));
