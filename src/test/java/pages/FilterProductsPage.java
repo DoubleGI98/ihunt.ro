@@ -15,14 +15,21 @@ public class FilterProductsPage extends BasePage{
 
     @Override
     public void isPageLoaded() {
-        Assert.assertEquals(driver.findElement(pageSubTitle).getText(),"ELECTROCASNICE","Page is not loaded properly");
+        //Assert.assertEquals(driver.findElement(pageSubTitle).getText(),"ELECTROCASNICE","Page is not loaded properly");
+        Assert.assertEquals(elementMethods.getElement(pageSubTitle).getText(),"ELECTROCASNICE","Page is not loaded properly");
     }
 
     public void selectCategory(){
-        driver.findElement(categoryButton).click();
+       // driver.findElement(categoryButton).click();
+        elementMethods.clickElement(categoryButton);
     }
 
     public void filterByWeight(){
-        driver.findElement(weightButton).click();
+       // driver.findElement(weightButton).click();
+        elementMethods.clickElement(weightButton);
+    }
+
+    public void scrollByPixels(int pixels){
+        elementMethods.scrollByPixels(pixels);
     }
 }

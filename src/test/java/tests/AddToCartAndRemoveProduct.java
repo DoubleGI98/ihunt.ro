@@ -14,16 +14,18 @@ public class AddToCartAndRemoveProduct extends BaseTest {
     public void executeTest(){
        // openBrowser();
         waitThreeSeconds();
-        acceptCookie();
+        //acceptCookie();
         HomePage homePage = new HomePage(driver);
-        homePage.scrollByPixels(driver,400);
+        CartPage cartPage = new CartPage(driver);
+        homePage.acceptCookie();
+        homePage.scrollByPixels(400);
         homePage.backToFrontPage();
-        homePage.scrollByPixels(driver,-400);
+        homePage.scrollByPixels(-400);
         homePage.isPageLoaded();
         //searchBarBox();
-        CartPage cartPage = new CartPage(driver);
         cartPage.searchBarBox();
         //scrollToBottom(driver);
+        cartPage.scrollByPixels(400);
         waitThreeSeconds();
         cartPage.addProductToCart();
         //addProductToCart();
@@ -42,10 +44,10 @@ public class AddToCartAndRemoveProduct extends BaseTest {
 //        driver.manage().window().maximize();
 //    }
 
-    public void acceptCookie(){
-        WebElement acceptCookieButton = driver.findElement(By.xpath("//button[contains(@id,'CybotCookiebotDialogBodyButtonAccept')]"));
-        acceptCookieButton.click();
-    }
+//    public void acceptCookie(){
+//        WebElement acceptCookieButton = driver.findElement(By.xpath("//button[contains(@id,'CybotCookiebotDialogBodyButtonAccept')]"));
+//        acceptCookieButton.click();
+//    }
 
 //    public void searchBarBox(){
 //        //WebElement searchBox = driver.findElement(By.id("productSearchInput"));
@@ -64,10 +66,10 @@ public class AddToCartAndRemoveProduct extends BaseTest {
         }
     }
 
-    public void scrollToBottom(WebDriver driver){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-    }
+//    public void scrollToBottom(WebDriver driver){
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+//    }
 
     //a[contains(@onclick,'addToCart')]
 

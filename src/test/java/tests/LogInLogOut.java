@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
@@ -14,26 +15,26 @@ public class LogInLogOut extends BaseTest{
     @Test
     public void executeTest(){
         //openBrowser();
-        waitThreeSeconds();
-        acceptCookie();
+        //acceptCookie();
        //accesLoginPage();
-        HomePage mainPage = new HomePage(driver);
-        mainPage.scrollByPixels(driver,400);
         waitThreeSeconds();
-        mainPage.backToFrontPage();
-        mainPage.isPageLoaded();
-        waitThreeSeconds();
-        mainPage.scrollByPixels(driver,-400);
-        //accesLoginPageV2();
-
         LoginPage loginPage = new LoginPage(driver);
+        HomePage homepage = new HomePage(driver);
+        //homepage.isPageLoaded();
+        homepage.isPageLoaded();
+        homepage.acceptCookie();
+        //homepage.scrollByPixels(400);
+        homepage.backToFrontPage();
+        //loginPage.scrollByPixels(-400);
+        homepage.isPageLoaded();
+        //accesLoginPageV2();
         loginPage.accesLoginPage();
         loginPage.isPageLoaded();
         //loginAccount();
         loginPage.loginAccount();
         waitThreeSeconds();
         loginPage.logOutAccount();
-        waitThreeSeconds();
+        loginPage.isLogOutMessageDisplayed();
         //logout();
     }
 
@@ -45,10 +46,10 @@ public class LogInLogOut extends BaseTest{
 //    }
 
 
-    public void acceptCookie(){
-        WebElement acceptCookieButton = driver.findElement(By.xpath("//button[contains(@id,'CybotCookiebotDialogBodyButtonAccept')]"));
-        acceptCookieButton.click();
-    }
+//    public void acceptCookie(){
+//        WebElement acceptCookieButton = driver.findElement(By.xpath("//button[contains(@id,'CybotCookiebotDialogBodyButtonAccept')]"));
+//        acceptCookieButton.click();
+//    }
 
 //    public void accesLoginPage(){
 //        WebElement clickloginPicture = driver.findElement(By.xpath("//i[contains(@class,'fa fa-user-circle-o')]"));

@@ -17,20 +17,22 @@ public class FilterProductsByWeight extends BaseTest{
     public void executeTest(){
         //openBrowser();
         waitThreeSeconds();
-        acceptCookie();
+        //acceptCookie();
 //        scrollToBottom(driver);
 //        backToFrontPage();
-        HomePage mainPage = new HomePage(driver);
-        mainPage.scrollByPixels(driver,400);
-        mainPage.backToFrontPage();
-        mainPage.isPageLoaded();
-
+        HomePage homePage = new HomePage(driver);
         FilterProductsPage filterProductsPage = new FilterProductsPage(driver);
+        homePage.acceptCookie();
+        homePage.scrollByPixels(400);
+        homePage.backToFrontPage();
+        homePage.isPageLoaded();
         filterProductsPage.selectCategory();
-        scrollByPixels(driver,700);
+        //scrollByPixels(driver,700);
+        filterProductsPage.scrollByPixels(700);
         filterProductsPage.isPageLoaded();
         filterProductsPage.filterByWeight();
-        scrollByPixels(driver,-700);
+        filterProductsPage.scrollByPixels(-700);
+        //scrollByPixels(driver,-700);
         //selectCategory();
         //scrollByPixels(driver,700);
         //filterByWeight();
@@ -56,10 +58,10 @@ public class FilterProductsByWeight extends BaseTest{
 
 
 
-    public void acceptCookie(){
-        WebElement acceptCookieButton = driver.findElement(By.xpath("//button[contains(@id,'CybotCookiebotDialogBodyButtonAccept')]"));
-        acceptCookieButton.click();
-    }
+//    public void acceptCookie(){
+//        WebElement acceptCookieButton = driver.findElement(By.xpath("//button[contains(@id,'CybotCookiebotDialogBodyButtonAccept')]"));
+//        acceptCookieButton.click();
+//    }
 
     public void waitThreeSeconds() {
         try {
