@@ -12,21 +12,17 @@ public class BaseTest {
     WebDriver driver;
 
     @BeforeMethod
-    //facem o metoda care deschide un browser;
     public void openBrowser() {
         driver = new ChromeDriver();
-        // navigam catre pagine website-ului
         driver.get("https://www.ihunt.ro/");
-        //facem fereastra browser-ului maximize
         driver.manage().window().maximize();
 
     }
 
-
-//    @AfterMethod
-//    public void closeBrowser() {
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void closeBrowser() {
+       driver.quit();
+    }
 
 
 

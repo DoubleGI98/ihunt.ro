@@ -37,8 +37,6 @@ public class LoginPage extends BasePage {
       }
 
     public void loginAccount(){
-//        String email = "ionci.florin@gmail.com";
-//        String passwordAccount = "Harababura55*";
         elementMethods.fillElement(emailBox,emailAccount);
         elementMethods.fillElement(passwordBox,passwordAccount);
         elementMethods.clickElement(authenticationButton);
