@@ -1,5 +1,6 @@
 package pages;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,23 +23,23 @@ public class LoginPage extends BasePage {
 
     @Override
     public void isPageLoaded() {
-        //Assert.assertEquals(driver.findElement(pageTitle).getText(),"Sunt deja client","Page is not loaded properly");
         Assert.assertEquals(elementMethods.getElement(pageTitle).getText(),"Sunt deja client","Page is not loaded properly");
 
     }
 
+    @Override
+    public void clearAndEmpty() {
+        Assert.assertEquals(elementMethods.getElement(logOutMessage).getText(),"Ai ieşit din contul tău. Puteţi părăsi calculatorul în siguranţă.","Page is not loaded properly");
+    }
+
     public void accesLoginPage(){
-        //driver.findElement(locationLogin).click();
         elementMethods.clickElement(locationLogin);
       }
 
     public void loginAccount(){
-        String email = "ionci.florin@gmail.com";
-        String passwordAccount = "Harababura55*";
-//        driver.findElement(emailBox).sendKeys(email);
-//        driver.findElement(passwordBox).sendKeys(passwordAccount);
-//        driver.findElement(authenticationButton).click();
-        elementMethods.fillElement(emailBox,email);
+//        String email = "ionci.florin@gmail.com";
+//        String passwordAccount = "Harababura55*";
+        elementMethods.fillElement(emailBox,emailAccount);
         elementMethods.fillElement(passwordBox,passwordAccount);
         elementMethods.clickElement(authenticationButton);
     }
@@ -53,8 +54,13 @@ public class LoginPage extends BasePage {
         elementMethods.scrollByPixels(pixels);
     }
 
-    public void isLogOutMessageDisplayed(){
-        Assert.assertEquals(elementMethods.getElement(logOutMessage).getText(),"Ai ieşit din contul tău. Puteţi părăsi calculatorul în siguranţă.","Page is not loaded properly");
+
+    public void waitThreeSeconds() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

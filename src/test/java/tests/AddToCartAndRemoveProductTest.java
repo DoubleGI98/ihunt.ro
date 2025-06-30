@@ -1,41 +1,35 @@
 package tests;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.HomePage;
 
-public class AddToCartAndRemoveProduct extends BaseTest {
+public class AddToCartAndRemoveProductTest extends BaseTest {
 
     //WebDriver driver;
 
     @Test
     public void executeTest(){
-       // openBrowser();
-        waitThreeSeconds();
-        //acceptCookie();
         HomePage homePage = new HomePage(driver);
         CartPage cartPage = new CartPage(driver);
+        homePage.waitThreeSeconds();
         homePage.acceptCookie();
         homePage.scrollByPixels(400);
         homePage.backToFrontPage();
         homePage.scrollByPixels(-400);
         homePage.isPageLoaded();
-        //searchBarBox();
         cartPage.searchBarBox();
-        //scrollToBottom(driver);
         cartPage.scrollByPixels(400);
-        waitThreeSeconds();
+        cartPage.waitThreeSeconds();
         cartPage.addProductToCart();
-        //addProductToCart();
-        waitThreeSeconds();
-        waitThreeSeconds();
-        cartPage.removeProductFromCart();
-        waitThreeSeconds();
+        cartPage.scrollByPixels(-400);
+        cartPage.waitThreeSeconds();
         cartPage.isPageLoaded();
-        //removeProduct();
-        waitThreeSeconds();
+        cartPage.waitThreeSeconds();
+        cartPage.removeProductFromCart();
+        cartPage.waitThreeSeconds();
+        cartPage.clearAndEmpty();
+
     }
 
 //    public void openBrowser(){
@@ -58,13 +52,13 @@ public class AddToCartAndRemoveProduct extends BaseTest {
 //        searchBox.sendKeys(Keys.ENTER);
 //    }
 
-    public void waitThreeSeconds() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void waitThreeSeconds() {
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 //    public void scrollToBottom(WebDriver driver){
 //        JavascriptExecutor js = (JavascriptExecutor) driver;

@@ -22,21 +22,16 @@ public class ElementMethods {
 
 
     public WebElement getElement(By locator){
-//        waitForElement(locator);
         return driver.findElement(locator);
     }
 
-//    public String getElementText(By locator){
-//        return getElement(locator).getText();
-//    }
+
 
     public void clickElement(By locator){
- //       waitForElement(locator);
         getElement(locator).click();
     }
 
     public void fillElement(By locator, String text) {
- //       waitForElement(locator);
         getElement(locator).sendKeys(text);
     }
 

@@ -9,6 +9,9 @@ import org.openqa.selenium.interactions.Actions;
 public abstract class BasePage {
     protected WebDriver driver;
     public ElementMethods elementMethods;
+    protected String emailAccount = "ionci.florin@gmail.com";
+    protected String passwordAccount = "Harababura55*";
+    protected String searchedProduct = "Smartwatch iHunt Watch 13 Titan Brown";
 
 
     public BasePage(WebDriver driver) {
@@ -17,9 +20,8 @@ public abstract class BasePage {
 
     }
 
-
-
     public abstract void isPageLoaded();
+    public abstract void clearAndEmpty();
 
 
 

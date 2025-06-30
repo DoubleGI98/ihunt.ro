@@ -1,43 +1,29 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.FilterProductsPage;
 import pages.HomePage;
 
-public class FilterProductsByWeight extends BaseTest{
+public class FilterProductsByWeightTest extends BaseTest{
 
    // WebDriver driver;
 
     @Test
     public void executeTest(){
-        //openBrowser();
-        waitThreeSeconds();
-        //acceptCookie();
-//        scrollToBottom(driver);
-//        backToFrontPage();
         HomePage homePage = new HomePage(driver);
         FilterProductsPage filterProductsPage = new FilterProductsPage(driver);
+        homePage.waitThreeSeconds();
         homePage.acceptCookie();
         homePage.scrollByPixels(400);
         homePage.backToFrontPage();
         homePage.isPageLoaded();
         filterProductsPage.selectCategory();
-        //scrollByPixels(driver,700);
         filterProductsPage.scrollByPixels(700);
         filterProductsPage.isPageLoaded();
         filterProductsPage.filterByWeight();
+        filterProductsPage.clearAndEmpty();
         filterProductsPage.scrollByPixels(-700);
-        //scrollByPixels(driver,-700);
-        //selectCategory();
-        //scrollByPixels(driver,700);
-        //filterByWeight();
-        //scrollByPixels(driver,-700);
-        waitThreeSeconds();
+
     }
 
  //   public void openBrowser(){
@@ -63,23 +49,23 @@ public class FilterProductsByWeight extends BaseTest{
 //        acceptCookieButton.click();
 //    }
 
-    public void waitThreeSeconds() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void waitThreeSeconds() {
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 //    public void selectCategory(){
 //        WebElement categoryButton = driver.findElement(By.xpath("//span[@class='main-menu-text' and normalize-space()='ELECTROCASNICE']"));
 //        categoryButton.click();
 //    }
 
-    public void scrollByPixels(WebDriver driver,int pixels){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
-    }
+//    public void scrollByPixels(WebDriver driver,int pixels){
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
+//    }
 
 //    public void filterByWeight(){
 //        WebElement weightButton = driver.findElement(By.xpath("//input[@data-keyword='greutate-9-kg' and @name='attribute[248]']"));

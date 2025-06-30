@@ -9,14 +9,19 @@ public class FilterProductsPage extends BasePage{
     private By categoryButton = By.xpath("//span[@class='main-menu-text' and normalize-space()='ELECTROCASNICE']");
     private By weightButton = By.xpath("//input[@data-keyword='greutate-9-kg' and @name='attribute[248]']");
     private By pageSubTitle = By.xpath("//h1[@class='heading-title' and text()='ELECTROCASNICE']");
+    private By categoryChecked = By.xpath("//label[@class='sf-checked']");
     public FilterProductsPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public void isPageLoaded() {
-        //Assert.assertEquals(driver.findElement(pageSubTitle).getText(),"ELECTROCASNICE","Page is not loaded properly");
         Assert.assertEquals(elementMethods.getElement(pageSubTitle).getText(),"ELECTROCASNICE","Page is not loaded properly");
+    }
+
+    @Override
+    public void clearAndEmpty() {
+        Assert.assertTrue(elementMethods.getElement(categoryChecked).isDisplayed(),"The box should be ticked");
     }
 
     public void selectCategory(){
